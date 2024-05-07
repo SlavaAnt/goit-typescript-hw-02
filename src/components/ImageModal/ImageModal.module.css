@@ -1,0 +1,68 @@
+.modal {
+  top: "50%";
+  left: "50%";
+  right: "auto";
+  bottom: "auto";
+  margin-right: "-50%";
+  transform: "translate(-50%, -50%)";
+  opacity: 0.7;
+}
+.modalBtnClose {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 20px;
+  width: 20px;
+}
+
+.modalBox {
+  height: 100%;
+  padding: 0 40px;
+  /* background-color: rgba(37, 37, 37, 0.795); */
+}
+
+.modalTextBox {
+  /* position: absolute; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #92cbf1;
+  opacity: 0.9;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.modalText {
+  color: rgb(255, 0, 0);
+}
+.authorBox {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+  width: 50%;
+}
+.authorImage {
+  border-radius: 50%;
+  width: 40px;
+}
+
+.authorBoxText {
+}
+
+.imageData {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.image {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  /* width: 100%; */
+}

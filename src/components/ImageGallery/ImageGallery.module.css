@@ -1,0 +1,12 @@
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* width: 100%; */
+  padding: 15px 15px;
+}
+
+.imageCard {
+  width: calc((100% - 60px) / 4);
+  /* height: 200px; */
+}

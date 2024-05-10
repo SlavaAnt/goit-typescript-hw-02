@@ -29,7 +29,6 @@ function App() {
       regular: "",
     },
   });
-  console.log(modalImage);
 
   const onSubmit = (inputValue: string): void => {
     setImages([]);
@@ -50,7 +49,6 @@ function App() {
       try {
         setLoading(true);
         const data = await requestImages(searchQuery, page);
-        console.log(data);
 
         if (!data.results.length) {
           toast(

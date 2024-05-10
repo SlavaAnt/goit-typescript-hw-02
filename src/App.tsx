@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { requestImages } from "./request-images-api";
 import toast, { Toaster } from "react-hot-toast";
-import Notiflix from "notiflix";
 
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import SearchBar from "./components/SearchBar/SearchBar";
@@ -11,18 +10,28 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
 
 import "./index.css";
+import { Image, ModalData } from "./types";
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [btnLoadMore, setBtnLoadMore] = useState(false);
-  const [page, setPage] = useState(1);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalImage, setModalImage] = useState(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [images, setImages] = useState<Image[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [btnLoadMore, setBtnLoadMore] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [modalImage, setModalImage] = useState<ModalData>({
+    likes: 0,
+    alt_description: "",
+    user: { name: "", bio: "", profile_image: { large: "" } },
+    links: { html: "" },
+    urls: {
+      regular: "",
+    },
+  });
+  console.log(modalImage);
 
-  const onSubmit = (inputValue) => {
+  const onSubmit = (inputValue: string): void => {
     setImages([]);
     setPage(1);
     setBtnLoadMore(false);
@@ -41,6 +50,7 @@ function App() {
       try {
         setLoading(true);
         const data = await requestImages(searchQuery, page);
+        console.log(data);
 
         if (!data.results.length) {
           toast(
@@ -66,15 +76,15 @@ function App() {
   }, [searchQuery, page]);
 
   // Modal
-  function openModal() {
+  function openModal(): void {
     setModalIsOpen(true);
   }
 
-  function closeModal() {
+  function closeModal(): void {
     setModalIsOpen(false);
   }
 
-  const onImageClick = (image) => {
+  const onImageClick = (image: ModalData): void => {
     setModalImage(image);
     openModal();
   };

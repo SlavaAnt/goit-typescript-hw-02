@@ -3,8 +3,19 @@ import { SlClose } from "react-icons/sl";
 import Modal from "react-modal";
 
 import css from "./ImageModal.module.css";
+import { ModalData } from "../../types";
 
-const ImageModal = ({ modalIsOpen, closeModal, modalImage }) => {
+interface ImageCardProps {
+  modalIsOpen: boolean;
+  closeModal: () => void;
+  modalImage: ModalData;
+}
+
+const ImageModal = ({
+  modalIsOpen,
+  closeModal,
+  modalImage,
+}: ImageCardProps) => {
   const {
     likes,
     alt_description,

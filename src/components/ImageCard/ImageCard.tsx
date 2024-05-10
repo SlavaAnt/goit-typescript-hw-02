@@ -1,7 +1,13 @@
 import PropTypes from "prop-types";
 import css from "./ImageCard.module.css";
+import { Image, ModalData } from "../../types";
 
-const ImageCard = ({ image, onImageClick }) => {
+interface ImageCardProps {
+  onImageClick: (image: ModalData) => void;
+  image: Image;
+}
+
+const ImageCard = ({ image, onImageClick }: ImageCardProps) => {
   const {
     description = "No data",
     urls: { small },

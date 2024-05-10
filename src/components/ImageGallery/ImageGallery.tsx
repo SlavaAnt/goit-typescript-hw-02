@@ -1,8 +1,14 @@
 import PropTypes from "prop-types";
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
+import { Image, ModalData } from "../../types";
 
-const ImageGallery = ({ images, onImageClick }) => {
+interface ImageGalleryProps {
+  images: Image[];
+  onImageClick: (image: ModalData) => void;
+}
+
+const ImageGallery = ({ images, onImageClick }: ImageGalleryProps) => {
   return (
     <>
       <ul className={css.imageContainer}>

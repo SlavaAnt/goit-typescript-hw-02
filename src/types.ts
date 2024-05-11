@@ -27,3 +27,15 @@ export type ModalData = {
     regular: string;
   };
 };
+
+export type RequestImageData = {
+  client_id: string;
+  query: string;
+  page: number;
+  per_page: number;
+};
+
+export type ResponseImageData = {
+  total_pages: number;
+  results: Image[];
+};

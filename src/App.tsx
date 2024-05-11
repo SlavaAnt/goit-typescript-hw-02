@@ -10,7 +10,7 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
 
 import "./index.css";
-import { Image, ModalData } from "./types";
+import { Image, ModalData, ResponseImageData } from "./types";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -48,7 +48,7 @@ function App() {
     async function fetchImages() {
       try {
         setLoading(true);
-        const data = await requestImages(searchQuery, page);
+        const data: ResponseImageData = await requestImages(searchQuery, page);
 
         if (!data.results.length) {
           toast(
